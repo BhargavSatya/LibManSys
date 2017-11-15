@@ -1,3 +1,6 @@
+
+import java.sql.*;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -10,6 +13,9 @@
  */
 public class StudentForm extends javax.swing.JFrame {
 
+           Connection conn = null;
+           PreparedStatement pst = null;
+           ResultSet rs;
     /**
      * Creates new form StudentForm
      */

@@ -1,4 +1,5 @@
 
+import java.sql.*;
 import javax.swing.JOptionPane;
 
 /*
@@ -12,11 +13,15 @@ import javax.swing.JOptionPane;
  * @author Loner
  */
 public class LoginPage extends javax.swing.JFrame {
-
+    
+           Connection conn = null;
+           PreparedStatement pst = null;
+           ResultSet rs;
     /**
      * Creates new form LoginPage
      */
     public LoginPage() {
+        DBConnect db= new DBConnect();
         initComponents();
     }
 

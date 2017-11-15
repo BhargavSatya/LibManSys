@@ -1,4 +1,5 @@
 
+import java.sql.*;
 import javax.swing.JOptionPane;
 
 /*
@@ -13,6 +14,9 @@ import javax.swing.JOptionPane;
  */
 public class ForgotPassword extends javax.swing.JFrame {
 
+           Connection conn = null;
+           PreparedStatement pst = null;
+           ResultSet rs;
     /**
      * Creates new form ForgotPassword
      */

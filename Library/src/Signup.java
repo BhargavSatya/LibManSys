@@ -1,3 +1,7 @@
+
+import java.sql.*;
+import javax.swing.JOptionPane;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -10,11 +14,16 @@
  */
 public class Signup extends javax.swing.JFrame {
 
-    /**
-     * Creates new form NewJFrame
-     */
+    
+           Connection conn = null;
+           PreparedStatement pst = null;
+           ResultSet rs;
+    
     public Signup() {
+        super("Login");
         initComponents();
+        DBConnect db = new DBConnect();
+        conn = db.DBConnect();
     }
 
     /**
@@ -75,6 +84,11 @@ public class Signup extends javax.swing.JFrame {
         });
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Your school Name", "Your favorite Book", "Your pet Name", "Person whom you hate" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Username");
 
@@ -87,6 +101,11 @@ public class Signup extends javax.swing.JFrame {
         jLabel5.setText("Password");
 
         jButton1.setText("Confirm");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Back");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -176,6 +195,35 @@ public class Signup extends javax.swing.JFrame {
 
             // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+
+            try{
+                String sql="Insert into Account (Username,Name,SecQue,Answer,Password) values (?,?,?,?,?) ";
+                pst = conn.prepareStatement(sql);
+                pst.setString(1,jTextField1.getText());
+                pst.setString(2,jTextField2.getText());
+                pst.setString(3,(String)jComboBox1.getSelectedItem());
+                pst.setString(4 ,jTextField3.getText());
+                 pst.setString(5 ,jPasswordField1.getText());
+                 pst.execute();
+                 JOptionPane.showMessageDialog(null,"New Account has been created");
+                pst.close();
+                rs.close();
+                
+                
+            }
+            catch(Exception e){
+                JOptionPane.showMessageDialog(null, e);
+            }
+
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
