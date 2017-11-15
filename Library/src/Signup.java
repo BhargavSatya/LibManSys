@@ -15,8 +15,8 @@ import javax.swing.JOptionPane;
 public class Signup extends javax.swing.JFrame {
 
     
-           Connection conn = null;
-           PreparedStatement pst = null;
+           Connection conn ;
+           PreparedStatement pst ;
            ResultSet rs;
     
     public Signup() {
@@ -213,7 +213,10 @@ public class Signup extends javax.swing.JFrame {
                  pst.execute();
                  JOptionPane.showMessageDialog(null,"New Account has been created");
                 pst.close();
-                rs.close();
+               //rs.close();
+                setVisible(false);
+                LoginPage ob = new LoginPage();
+                ob.setVisible(true);
                 
                 
             }
