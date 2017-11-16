@@ -20,7 +20,7 @@ public class DBConnect {
         // String url = "jdbc:sqlite:/root/Desktop/Library/src";
         try {
             Class.forName("org.sqlite.JDBC");
-            Connection c = DriverManager.getConnection("jdbc:sqlite:/root/Desktop/Library/src/Library.sqlite");
+            Connection c = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\ashri\\Desktop\\LibManSys-master\\Library\\src\\Library.sqlite");
             return c;
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);

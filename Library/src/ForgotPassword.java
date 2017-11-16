@@ -13,17 +13,71 @@ import javax.swing.JOptionPane;
  * @author Loner
  */
 public class ForgotPassword extends javax.swing.JFrame {
-
+           String ans;
            Connection conn = null;
-           PreparedStatement pst = null;
-           ResultSet rs;
+           PreparedStatement pst = null,statement=null;
+           ResultSet rs = null;
     /**
      * Creates new form ForgotPassword
      */
     public ForgotPassword() {
+        super("Login");
         initComponents();
+        DBConnect db = new DBConnect();
+        conn = db.DBConnect();
     }
-
+    public void Search(){
+        String s1=jTextField1.getText();
+        
+        String sq1="select * from Account where Username='"+s1+"'";
+        try{
+            pst=conn.prepareStatement(sq1);
+            rs=pst.executeQuery();
+        if(rs.next()){
+            jTextField2.setText(rs.getString(2));
+            jTextField3.setText(rs.getString(3));
+            ans = rs.getString(4);
+            rs.close();
+            pst.close();
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Wrong Username");
+        }
+        }catch(Exception e){
+                    JOptionPane.showMessageDialog(null, "Wrong Username");
+                }
+    }
+    public void Retrive(){
+        String s5=jPasswordField1.getText();
+        String s4=jTextField4.getText();
+        String s3=jTextField3.getText();
+        String s2=jTextField2.getText();
+        String s1=jTextField1.getText();
+        
+        String sq2 = "UPDATE Account SET Username=?, Name=?, SecQue=?, Answer=?, Password=? WHERE Username='"+s1+"'";
+        if(ans.equals(s4)){
+            try{
+                statement = conn.prepareStatement(sq2);
+                statement.setString(1, s1);
+                statement.setString(2, s2);
+                statement.setString(3, s3);
+                statement.setString(4, s4);
+                statement.setString(5, s5);
+                int rowsUpdated = statement.executeUpdate();
+                statement.close();
+                if (rowsUpdated > 0) {
+                    JOptionPane.showMessageDialog(null,"Password Succesfully Changed");
+                }else
+                    JOptionPane.showMessageDialog(null,"Problem Changing Password!");
+                statement.close();         
+            }catch(Exception e){
+                JOptionPane.showMessageDialog(null, e);
+            }
+        }
+        else{
+            JOptionPane.showMessageDialog(null,"Answer Security Question Correctly");
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -46,7 +100,6 @@ public class ForgotPassword extends javax.swing.JFrame {
         jTextField3 = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
 
@@ -102,13 +155,6 @@ public class ForgotPassword extends javax.swing.JFrame {
 
         jLabel2.setText("Name");
 
-        jButton2.setText("Confirm");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-
         jLabel4.setText("Answer");
 
         jButton4.setText("Back");
@@ -144,11 +190,9 @@ public class ForgotPassword extends javax.swing.JFrame {
                     .addComponent(jButton4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(jButton1)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 4, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 4, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jButton3, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
         );
@@ -174,10 +218,8 @@ public class ForgotPassword extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButton2)))
-                .addGap(41, 41, 41)
+                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(43, 43, 43)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -200,7 +242,7 @@ public class ForgotPassword extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(46, Short.MAX_VALUE)
+                .addContainerGap(47, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -224,18 +266,12 @@ public class ForgotPassword extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jPasswordField1ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
-
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
+        Retrive();
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-                JOptionPane.showMessageDialog(null, "FUCK OFF");
-
-        // TODO add your handling code here:
+        Search();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -282,7 +318,6 @@ public class ForgotPassword extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;

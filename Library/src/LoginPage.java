@@ -22,9 +22,31 @@ public class LoginPage extends javax.swing.JFrame {
      */
     public LoginPage() {
         DBConnect db= new DBConnect();
+        conn = db.DBConnect();
         initComponents();
     }
-
+    public int Validate(){
+        String s1=jTextField1.getText();
+        String s2=jPasswordField1.getText();
+        String sq1="select * from Account where Username='"+s1+"'";
+        try{
+            if(s1.equals("admin")&&s2.equals("library123")){
+                return 1;
+            }
+            pst=conn.prepareStatement(sq1);
+            rs=pst.executeQuery();
+        if(rs.next()){
+            if(s1.equals(rs.getString(1))&&s2.equals(rs.getString(5))){
+                return 2;
+            }
+            rs.close();
+            pst.close();
+        }
+        }catch(Exception e){
+                    JOptionPane.showMessageDialog(null, e);
+                }
+        return 0;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -194,15 +216,16 @@ public class LoginPage extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
-       if(true){
+       if(Validate()==2){
            setVisible(false);
            StudentForm ob= new StudentForm();
            ob.setVisible(true);
        }
-       else{
-           JOptionPane.showMessageDialog(null, "Invalid Credentials");
-           
-       }
+       else if(Validate()==1){
+           setVisible(false);
+           Signup ob= new Signup();
+           ob.setVisible(true);
+       }else JOptionPane.showMessageDialog(null, "Invalid Credentials");
                 // TODO add your handling code here:
     }//GEN-LAST:event_button1ActionPerformed
 
