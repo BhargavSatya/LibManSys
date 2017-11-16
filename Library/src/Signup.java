@@ -20,7 +20,7 @@ public class Signup extends javax.swing.JFrame {
            ResultSet rs;
     
     public Signup() {
-        super("Login");
+        super("Signup");
         initComponents();
         DBConnect db = new DBConnect();
         conn = db.DBConnect();
@@ -34,12 +34,14 @@ public class Signup extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
         menuBar1 = new java.awt.MenuBar();
         menu1 = new java.awt.Menu();
         menu2 = new java.awt.Menu();
         popupMenu1 = new java.awt.PopupMenu();
         jMenu1 = new javax.swing.JMenu();
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jTextField1 = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
         jPasswordField1 = new javax.swing.JPasswordField();
@@ -52,6 +54,9 @@ public class Signup extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jRadioButton1 = new javax.swing.JRadioButton();
+        jRadioButton2 = new javax.swing.JRadioButton();
+        jLabel6 = new javax.swing.JLabel();
 
         menu1.setLabel("File");
         menuBar1.add(menu1);
@@ -114,6 +119,26 @@ public class Signup extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup1.add(jRadioButton1);
+        jRadioButton1.setText("Regular");
+
+        org.jdesktop.beansbinding.Binding binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, buttonGroup1, org.jdesktop.beansbinding.ELProperty.create("Regular"), jRadioButton1, org.jdesktop.beansbinding.BeanProperty.create("actionCommand"));
+        bindingGroup.addBinding(binding);
+
+        buttonGroup1.add(jRadioButton2);
+        jRadioButton2.setText("Golden");
+
+        binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, buttonGroup1, org.jdesktop.beansbinding.ELProperty.create("Golden"), jRadioButton2, org.jdesktop.beansbinding.BeanProperty.create("actionCommand"));
+        bindingGroup.addBinding(binding);
+
+        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton2ActionPerformed(evt);
+            }
+        });
+
+        jLabel6.setText("Subscriber Type ");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -125,23 +150,29 @@ public class Signup extends javax.swing.JFrame {
                     .addComponent(jLabel1)
                     .addComponent(jLabel4)
                     .addComponent(jLabel5)
-                    .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jButton1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.Alignment.TRAILING, 0, 179, Short.MAX_VALUE)
+                                .addComponent(jComboBox1, javax.swing.GroupLayout.Alignment.TRAILING, 0, 1, Short.MAX_VALUE)
                                 .addComponent(jTextField2, javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jTextField3, javax.swing.GroupLayout.Alignment.TRAILING))
-                            .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jTextField3, javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(19, 19, 19))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton2)
-                        .addGap(35, 35, 35))))
+                        .addGap(73, 73, 73)
+                        .addComponent(jRadioButton1)
+                        .addGap(26, 26, 26)
+                        .addComponent(jRadioButton2)
+                        .addContainerGap(52, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -166,14 +197,22 @@ public class Signup extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5)
                     .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(42, 42, 42)
+                .addGap(33, 33, 33)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(jRadioButton1)
+                    .addComponent(jRadioButton2))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
-        pack();
+        bindingGroup.bind();
+
+        setSize(new java.awt.Dimension(501, 448));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
@@ -203,13 +242,20 @@ public class Signup extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
             try{
-                String sql="Insert into Account (Username,Name,SecQue,Answer,Password) values (?,?,?,?,?) ";
+                String sql="Insert into Account (Username,Name,SecQue,Answer,Password,SubType) values (?,?,?,?,?,?) ";
                 pst = conn.prepareStatement(sql);
+                if(jTextField1.getText().equals("")||jTextField2.getText().equals("")||jTextField3.getText().equals("")||buttonGroup1.getSelection().getActionCommand().equals("")||jPasswordField1.getText().equals(""))
+                {
+                    throw new ArithmeticException();
+                }
+                    
                 pst.setString(1,jTextField1.getText());
                 pst.setString(2,jTextField2.getText());
                 pst.setString(3,(String)jComboBox1.getSelectedItem());
                 pst.setString(4 ,jTextField3.getText());
                  pst.setString(5 ,jPasswordField1.getText());
+                
+                pst.setString(6,(String)buttonGroup1.getSelection().getActionCommand());
                  pst.execute();
                  JOptionPane.showMessageDialog(null,"New Account has been created");
                 pst.close();
@@ -220,6 +266,12 @@ public class Signup extends javax.swing.JFrame {
                 
                 
             }
+            catch(SQLException w){
+                 JOptionPane.showMessageDialog(null, "Username already Exists");
+            }
+            catch(ArithmeticException e){
+                JOptionPane.showMessageDialog(null, "All Fields must be filled.");
+            }
             catch(Exception e){
                 JOptionPane.showMessageDialog(null, e);
             }
@@ -227,6 +279,10 @@ public class Signup extends javax.swing.JFrame {
 
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -264,6 +320,7 @@ public class Signup extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JComboBox<String> jComboBox1;
@@ -272,8 +329,11 @@ public class Signup extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JPasswordField jPasswordField1;
+    private javax.swing.JRadioButton jRadioButton1;
+    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
@@ -281,5 +341,6 @@ public class Signup extends javax.swing.JFrame {
     private java.awt.Menu menu2;
     private java.awt.MenuBar menuBar1;
     private java.awt.PopupMenu popupMenu1;
+    private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
 }
