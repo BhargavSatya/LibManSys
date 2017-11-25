@@ -1,71 +1,48 @@
 
-import java.awt.BorderLayout;
 import javax.swing.ImageIcon;
-import static javax.swing.JFrame.EXIT_ON_CLOSE;
 import javax.swing.JLabel;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- *
- * @author root
- */
 public class FrontPage extends javax.swing.JFrame implements Runnable {
-Thread th;
-int s=0;
+
+    Thread th;
+    int s = 0;
+
     /**
      * Creates new form FrontPage
      */
     public FrontPage() {
-        th= new Thread((Runnable)this);
-        
-        
+        th = new Thread((Runnable) this);
+
+        setContentPane(new JLabel(new ImageIcon(System.getProperty("user.dir") + "/src/cl.jpg")));
         initComponents();
-        /* setTitle(" ");
-        setSize(697,417);
-        setLocationRelativeTo(null);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setVisible(true);
-        
-        setLayout(new BorderLayout());
-        setContentPane(new JLabel(new ImageIcon("/root/Desktop/Library/img/cl.jpg")));
-        setResizable(false);
-        
-        setSize(697,417);
-        setSize(697,417);*/
-        
+
     }
-     
-    public void setUp(){
-        setVisible(false);
+
+    public void setUp() {
+        Session.connectDB();
         th.start();
-        
+
     }
-    public void run(){
-        try{
-            for(int i=0;i<=100;i++){
+
+    public void run() {
+        try {
+            for (int i = 0; i <= 100; i++) {
                 s++;
-                int n=jProgressBar1.getMaximum();
-                int v= jProgressBar1.getValue();
-                if(v<n){
-                    jProgressBar1.setValue(jProgressBar1.getValue()+1);
-                }
-                else {
-                    i=101;
+                int n = jProgressBar1.getMaximum();
+                int v = jProgressBar1.getValue();
+                if (v < n) {
+                    jProgressBar1.setValue(jProgressBar1.getValue() + 1);
+                } else {
+                    i = 101;
                     setVisible(false);
-                    LoginPage ob= new LoginPage();
+                    LoginPage ob = new LoginPage();
                     ob.setVisible(true);
                 }
                 Thread.sleep(15);
             }
-            
-        }
-        catch(Exception e){
-            
+
+        } catch (Exception e) {
+
         }
     }
 
@@ -78,48 +55,39 @@ int s=0;
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jProgressBar1 = new javax.swing.JProgressBar();
         jLabel1 = new javax.swing.JLabel();
+        jProgressBar1 = new javax.swing.JProgressBar();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setUndecorated(true);
 
         jLabel1.setFont(new java.awt.Font("Cantarell", 0, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(3, 21, 167));
         jLabel1.setText("Central Library");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(250, 250, 250)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel1)
-                    .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(231, 231, 231))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jLabel1)
-                .addGap(180, 180, 180)
-                .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(171, 171, 171))
-        );
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(226, 226, 226)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(jLabel1)
+                .addGap(151, 151, 151)
+                .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(164, Short.MAX_VALUE))
         );
 
-        setSize(new java.awt.Dimension(720, 456));
+        setSize(new java.awt.Dimension(702, 409));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -149,11 +117,12 @@ int s=0;
             java.util.logging.Logger.getLogger(FrontPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        
+
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 FrontPage fp = new FrontPage();
+
                 fp.setUp();
                 fp.setVisible(true);
             }
@@ -162,7 +131,6 @@ int s=0;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JProgressBar jProgressBar1;
     // End of variables declaration//GEN-END:variables
 }
