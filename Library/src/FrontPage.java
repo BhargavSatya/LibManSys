@@ -13,7 +13,7 @@ public class FrontPage extends javax.swing.JFrame implements Runnable {
     public FrontPage() {
         th = new Thread((Runnable) this);
 
-        setContentPane(new JLabel(new ImageIcon(System.getProperty("user.dir") + "/src/cl.jpg")));
+        setContentPane(new JLabel(new ImageIcon(System.getProperty("user.dir") + "/images/cl.jpg")));
         initComponents();
 
     }
@@ -61,9 +61,10 @@ public class FrontPage extends javax.swing.JFrame implements Runnable {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setUndecorated(true);
+        setResizable(false);
 
-        jLabel1.setFont(new java.awt.Font("Cantarell", 0, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(3, 21, 167));
+        jLabel1.setFont(new java.awt.Font("Cantarell", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(65, 21, 176));
         jLabel1.setText("Central Library");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -82,9 +83,9 @@ public class FrontPage extends javax.swing.JFrame implements Runnable {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addComponent(jLabel1)
-                .addGap(151, 151, 151)
-                .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(164, Short.MAX_VALUE))
+                .addGap(141, 141, 141)
+                .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(179, Short.MAX_VALUE))
         );
 
         setSize(new java.awt.Dimension(702, 409));
