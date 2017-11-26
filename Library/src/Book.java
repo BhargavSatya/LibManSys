@@ -12,7 +12,7 @@ public class Book {
 
     @Override
     public String toString() {
-        return id + " " + title + " " + author;
+        return id + "      " + title + "      " + author;
     }
 
     public String getTitle() {

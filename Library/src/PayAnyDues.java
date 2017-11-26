@@ -1,4 +1,10 @@
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.sql.Timestamp;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -8,12 +14,15 @@ import javax.swing.JOptionPane;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author root
  */
 public class PayAnyDues extends javax.swing.JFrame {
+
+    Connection conn = null;
+    Statement pst = null;
+    ResultSet rs;
 
     /**
      * Creates new form PayAnyDues
@@ -25,12 +34,26 @@ public class PayAnyDues extends javax.swing.JFrame {
         jButton1.setContentAreaFilled(false);
         jButton2.setOpaque(false);
         jButton2.setContentAreaFilled(false);
-        
+
         getDues();
     }
-    
-    private void getDues(){
-        
+
+    private void getDues() {
+        Connection conn = Session.getConn();//DBConnect.DBConnect();
+        try {
+            pst = conn.createStatement();
+            int dues = 0;
+            rs = pst.executeQuery("SELECT Dues FROM Account WHERE username = '" + Session.getUsername() + "'");
+            while (rs.next()) {
+                dues = rs.getInt("Dues");
+            }
+            jLabel1.setText("Pay: " + dues);
+            pst.close();
+            rs.close();
+
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
     }
 
     /**
@@ -120,11 +143,17 @@ public class PayAnyDues extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         JOptionPane.showMessageDialog(null, "Pay Soon...");
+        setVisible(false);
+        StudentForm ob = new StudentForm();
+        ob.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         JOptionPane.showMessageDialog(null, "Paid");
+        setVisible(false);
+        StudentForm ob = new StudentForm();
+        ob.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
