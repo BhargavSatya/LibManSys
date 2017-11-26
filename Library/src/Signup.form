@@ -339,14 +339,14 @@
     <Component class="javax.swing.JLabel" name="jLabel8">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="/root/Desktop/editz/Final/LibManSys/Library/images/newUser.png"/>
+          <Image iconType="3" name="/newUser.png"/>
         </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel9">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="/root/Desktop/editz/Final/LibManSys/Library/images/signupicon.png"/>
+          <Image iconType="3" name="/signupicon.png"/>
         </Property>
       </Properties>
     </Component>

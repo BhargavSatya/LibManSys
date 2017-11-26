@@ -144,9 +144,9 @@ public class Signup extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(250, 243, 243));
         jLabel7.setText("SignUp Page");
 
-        jLabel8.setIcon(new javax.swing.ImageIcon("/root/Desktop/editz/Final/LibManSys/Library/images/newUser.png")); // NOI18N
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/newUser.png"))); // NOI18N
 
-        jLabel9.setIcon(new javax.swing.ImageIcon("/root/Desktop/editz/Final/LibManSys/Library/images/signupicon.png")); // NOI18N
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/signupicon.png"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

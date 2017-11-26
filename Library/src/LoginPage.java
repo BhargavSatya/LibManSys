@@ -139,7 +139,7 @@ public class LoginPage extends javax.swing.JFrame {
         });
 
         jButton1.setFont(new java.awt.Font("DejaVu Sans Condensed", 0, 15)); // NOI18N
-        jButton1.setIcon(new javax.swing.ImageIcon("/root/Desktop/editz/Final/LibManSys/Library/images/signuphere.png")); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/signuphere.png"))); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);

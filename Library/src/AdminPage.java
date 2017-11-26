@@ -37,7 +37,7 @@ public class AdminPage extends javax.swing.JFrame {
         setResizable(false);
 
         jButton1.setFont(new java.awt.Font("DejaVu Sans Condensed", 2, 18)); // NOI18N
-        jButton1.setIcon(new javax.swing.ImageIcon("/root/Desktop/editz/Final/LibManSys/Library/images/addressbook-add.png")); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/addressbook-add.png"))); // NOI18N
         jButton1.setOpaque(true);
         jButton1.setSelected(true);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -47,7 +47,7 @@ public class AdminPage extends javax.swing.JFrame {
         });
 
         jButton2.setFont(new java.awt.Font("DejaVu Sans Condensed", 2, 18)); // NOI18N
-        jButton2.setIcon(new javax.swing.ImageIcon("/root/Desktop/editz/Final/LibManSys/Library/images/removeContent.png")); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/removeContent.png"))); // NOI18N
         jButton2.setOpaque(true);
         jButton2.setSelected(true);
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -57,7 +57,7 @@ public class AdminPage extends javax.swing.JFrame {
         });
 
         jButton3.setFont(new java.awt.Font("DejaVu Sans Condensed", 2, 18)); // NOI18N
-        jButton3.setIcon(new javax.swing.ImageIcon("/root/Desktop/editz/Final/LibManSys/Library/images/printReport.png")); // NOI18N
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/printReport.png"))); // NOI18N
         jButton3.setHideActionText(true);
         jButton3.setOpaque(true);
         jButton3.setSelected(true);
@@ -68,7 +68,7 @@ public class AdminPage extends javax.swing.JFrame {
         });
 
         jButton6.setFont(new java.awt.Font("DejaVu Sans Condensed", 2, 18)); // NOI18N
-        jButton6.setIcon(new javax.swing.ImageIcon("/root/Desktop/editz/Final/LibManSys/Library/images/logout.jpg")); // NOI18N
+        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logout.jpg"))); // NOI18N
         jButton6.setSelected(true);
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -76,10 +76,10 @@ public class AdminPage extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("/root/Desktop/editz/Final/LibManSys/Library/images/admin.jpg")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/admin.jpg"))); // NOI18N
 
         jButton5.setBackground(new java.awt.Color(252, 201, 116));
-        jButton5.setIcon(new javax.swing.ImageIcon("/root/Desktop/editz/Final/LibManSys/Library/images/adminname.jpg")); // NOI18N
+        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/adminname.jpg"))); // NOI18N
         jButton5.setFocusable(false);
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

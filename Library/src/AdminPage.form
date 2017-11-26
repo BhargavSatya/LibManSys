@@ -88,7 +88,7 @@
           <Font name="DejaVu Sans Condensed" size="18" style="2"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="/root/Desktop/editz/Final/LibManSys/Library/images/addressbook-add.png"/>
+          <Image iconType="3" name="/addressbook-add.png"/>
         </Property>
         <Property name="opaque" type="boolean" value="true"/>
         <Property name="selected" type="boolean" value="true"/>
@@ -103,7 +103,7 @@
           <Font name="DejaVu Sans Condensed" size="18" style="2"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="/root/Desktop/editz/Final/LibManSys/Library/images/removeContent.png"/>
+          <Image iconType="3" name="/removeContent.png"/>
         </Property>
         <Property name="opaque" type="boolean" value="true"/>
         <Property name="selected" type="boolean" value="true"/>
@@ -118,7 +118,7 @@
           <Font name="DejaVu Sans Condensed" size="18" style="2"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="/root/Desktop/editz/Final/LibManSys/Library/images/printReport.png"/>
+          <Image iconType="3" name="/printReport.png"/>
         </Property>
         <Property name="hideActionText" type="boolean" value="true"/>
         <Property name="opaque" type="boolean" value="true"/>
@@ -134,7 +134,7 @@
           <Font name="DejaVu Sans Condensed" size="18" style="2"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="/root/Desktop/editz/Final/LibManSys/Library/images/logout.jpg"/>
+          <Image iconType="3" name="/logout.jpg"/>
         </Property>
         <Property name="selected" type="boolean" value="true"/>
       </Properties>
@@ -145,7 +145,7 @@
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="/root/Desktop/editz/Final/LibManSys/Library/images/admin.jpg"/>
+          <Image iconType="3" name="/admin.jpg"/>
         </Property>
       </Properties>
     </Component>
@@ -155,7 +155,7 @@
           <Color blue="74" green="c9" red="fc" type="rgb"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="/root/Desktop/editz/Final/LibManSys/Library/images/adminname.jpg"/>
+          <Image iconType="3" name="/adminname.jpg"/>
         </Property>
         <Property name="focusable" type="boolean" value="false"/>
       </Properties>
