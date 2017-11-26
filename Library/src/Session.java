@@ -3,7 +3,7 @@ import java.sql.Connection;
 
 public class Session {
 
-    private static String username;
+    private static String username, subType;
     private static Connection conn;
 
     public static void connectDB() {
@@ -12,6 +12,14 @@ public class Session {
 
     public static Connection getConn() {
         return conn;
+    }
+
+    public static String getSubType() {
+        return subType;
+    }
+
+    public static void setSubType(String subType) {
+        Session.subType = subType;
     }
 
     public static String getUsername() {
