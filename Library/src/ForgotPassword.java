@@ -82,7 +82,6 @@ public class ForgotPassword extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "Problem Changing Password!");
                 }
                 statement.close();
-                conn.close();
             } catch (NullPointerException e) {
                 JOptionPane.showMessageDialog(null, "Please Enter a Password");
             } catch (Exception e) {
